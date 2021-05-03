@@ -45,7 +45,7 @@ class GridView {
      */
     set element(element) {
         if (document.querySelector(element)) {
-            this._element = document.querySelector(element);
+            this._element = element;
             return true;
         }
         return false;
@@ -56,6 +56,15 @@ class GridView {
      * Method for show GridWiewTable
      */
     render() {
-
+     //show header
+        if (this._header) {
+            const header = document.createElement('h1');
+            header.textContent = this._header;
+            this._headerClass.forEach(cssClass => {
+                header.classList.add(cssClass);
+            });
+            document.querySelector(this._element).append(header);
+        }
+        //show table
     }
 }

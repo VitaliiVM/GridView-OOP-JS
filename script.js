@@ -29,7 +29,7 @@ const dataExample = [
 let gridView = new GridView();
 gridView.header = 'Hello';
 gridView.headerClass = ['header', 'site-header'];
-gridView.attribute = {
+gridView._attribute = {
     'company': {
         'label': 'Компания',
         'src': 'html',

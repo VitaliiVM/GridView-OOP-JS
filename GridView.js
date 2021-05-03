@@ -56,7 +56,7 @@ class GridView {
      * Method for show GridWiewTable
      */
     render() {
-     //show header
+        //show header
         if (this._header) {
             const header = document.createElement('h1');
             header.textContent = this._header;
@@ -66,5 +66,22 @@ class GridView {
             document.querySelector(this._element).append(header);
         }
         //show table
+        const table = document.createElement('table');
+        this._tableClass.forEach(cssClass => {
+            table.classList.add(cssClass);
+        });
+        //create table header
+        let trHeader = document.createElement('tr');
+        for (let attributeKey in this._attribute) {
+            let th = document.createElement('th');
+            if (this._attribute[attributeKey].label) {
+                th.textContent = this._attribute[attributeKey].label;
+            } else {
+                th.textContent = attributeKey;
+            }
+            trHeader.append(th);
+        }
+        table.append(trHeader);
+        document.querySelector(this._element).append(table);
     }
 }

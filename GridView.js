@@ -30,6 +30,29 @@ class GridView {
     }
 
     /**
+     * Method set headerClass
+     */
+    set headerClass(headerClass) {
+        if (typeof headerClass === 'object') {
+            this.headerClass = headerClass;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Method set element
+     */
+    set element(element) {
+        if (document.querySelector(element)) {
+            this._element = document.querySelector(element);
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
      * Method for show GridWiewTable
      */
     render() {

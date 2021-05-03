@@ -82,6 +82,30 @@ class GridView {
             trHeader.append(th);
         }
         table.append(trHeader);
+
+        //draw table
+        for (let i = 0; i < this.data.length; i++) {
+            let dataArr = this.data[i];//одна строка данных
+            let tr = document.createElement('tr');
+            for (let key in this._attribute) {
+                let td = document.createElement('td');
+                let value = dataArr[key];
+                //есть ли функция value!!!
+                if (this._attribute[key].value) {
+                    value = this._attribute[key].value(dataArr);
+                }
+                //проверяю аттрибут src
+                if (this._attribute[key].src) {
+                    td.innerHTML = value;
+                } else {
+                    td.textContent = value;
+                }
+                tr.append(td);
+            }
+            table.append(tr);
+
+        }
+
         document.querySelector(this._element).append(table);
     }
 }

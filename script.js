@@ -31,14 +31,14 @@ gridView.header = 'Table';
 gridView.headerClass = ['header', 'site-header'];
 gridView._attribute = {
     'company': {
-        'label': 'Компания',
+        'label': 'Company',
         'src': 'html',
     },
     'chef': {
-        'label': 'Директор',
+        'label': 'Director',
     },
     'country': {
-        'label': 'Страна',
+        'label': 'Country',
         'value': (data) => {
             if (data['country'] === 'Germany') {
                 return data['country'] + ' map'

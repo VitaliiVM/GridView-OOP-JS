@@ -32,9 +32,9 @@ class GridView {
     /**
      * Method set headerClass
      */
-    set headerClass(headerClass) {
-        if (typeof headerClass === 'object') {
-            this.headerClass = headerClass;
+    set headerClass(_headerClass) {
+        if (typeof _headerClass === 'object') {
+            this._headerClass = _headerClass;
             return true;
         }
         return false;

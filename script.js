@@ -27,25 +27,27 @@ const dataExample = [
 ];
 
 let gridView = new GridView();
-gridView.header = 'Table';
-gridView.headerClass = ['header', 'site-header'];
-gridView._attribute = {
-    'company': {
-        'label': 'Company',
-        'src': 'html',
-    },
-    'chef': {
-        'label': 'Director',
-    },
-    'country': {
-        'label': 'Country',
-        'value': (data) => {
-            if (data['country'] === 'Germany') {
-                return data['country'] + ' map'
+const data = {
+    header :'Table',
+    headerClass: ['header', 'site-header'],
+    _attribute: {
+        'company': {
+            'label': 'Company',
+            'src': 'html',
+        },
+        'chef': {
+            'label': 'Director',
+        },
+        'country': {
+            'label': 'Country',
+            'value': (data) => {
+                if (data['country'] === 'Germany') {
+                    return data['country'] + ' map';
+                }
+                return data['country'];
             }
-            return data['country'];
         }
-    }
-};
-gridView.data = dataExample;
-gridView.render();
+    },
+    data: dataExample
+}
+gridView.render(data);
